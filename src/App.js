@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Game from './components/Game';
+import Game from './pages/Game';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomeScreen from './pages/HomeScreen';
 

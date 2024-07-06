@@ -1,9 +1,9 @@
-body,
-html {
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
+    overflow: hidden; /* Menyembunyikan scrollbar */
     font-family: Arial, sans-serif;
 }
 
@@ -14,23 +14,27 @@ html {
     justify-content: center;
     height: 100vh;
     background: linear-gradient(180deg, #8e2de2, #4a00e0);
-    position: relative;
     width: 100%;
-    padding: 20px; /* Ensure there's some padding for smaller devices */
     box-sizing: border-box;
+    position: relative;
+    padding: 20px;
 }
 
-.setting {
+.top-bar {
     position: absolute;
     top: 20px;
-    left: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-sizing: border-box;
 }
 
 .container {
     display: flex;
     align-items: center;
     flex-direction: column;
-    text-align: center; /* Ensure text is centered on smaller screens */
+    text-align: center;
 }
 
 .title {
@@ -59,7 +63,7 @@ html {
     border-radius: 40px;
     box-shadow: 0 4px #28a428;
     transition: all 0.3s ease;
-    margin-top: 1em; /* Add some margin for better spacing */
+    margin-top: 1em;
 }
 
 .start-button:hover {
@@ -87,7 +91,7 @@ html {
     box-shadow: 0 4px #009ac6;
     transition: all 0.3s ease;
     text-decoration: none;
-    margin-top: 1em; /* Add some margin for better spacing */
+    margin-top: 1em;
 }
 
 .info-button:hover {
@@ -101,9 +105,62 @@ html {
 }
 
 .judulgame {
-    max-width: 100%; /* Make the image responsive */
-    height: auto; /* Preserve aspect ratio */
-    margin-top: 20px; /* Add some margin for better spacing */
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    animation: floating 2s ease-in-out infinite;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal-content {
+    background-color: rgba(254, 254, 254, 0.6);
+    margin: 15% auto;
+    border-radius: 30px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.close {
+    color: #7c00b5;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(167, 55, 195);
+    transition: 0.5s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 /* Media Queries */
@@ -149,16 +206,56 @@ html {
     }
 }
 
-/* Hide content in portrait mode on mobile devices */
-@media (max-width: 480px) and (orientation: portrait) {
-    .home-screen {
-        display: none;
+#rotate-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 9999;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+    #rotate-message {
+        display: block;
     }
 }
 
-/* Show content in landscape mode on mobile devices */
-@media (max-width: 480px) and (orientation: landscape) {
+@media only screen and (max-width: 768px) and (orientation: landscape) {
     .home-screen {
-        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1.5em;
+    }
+
+    .start-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .judulgame {
+        max-width: 70%;
+        height: auto;
+        margin-top: 20px;
+        animation: floating 2s ease-in-out infinite;
+    }
+
+    .info-button {
+        width: 50px;
+        height: 50px;
+        font-size: 32px;
     }
 }
