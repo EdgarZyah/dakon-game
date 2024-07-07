@@ -23,6 +23,7 @@ const Game = () => {
             setShowRotateMessage(false);
         }
     };
+
     const handleOpenModal = () => {
         setShowModalInfo(true);
     };
@@ -44,7 +45,8 @@ const Game = () => {
         let newPits = [...pits];
         const playerSide = currentPlayer === 0 ? [0, 1, 2, 3, 4, 5] : [7, 8, 9, 10, 11, 12];
 
-        if (playerSide.includes(clickedIndex)) {
+        // Cek apakah pit kosong
+        if (playerSide.includes(clickedIndex) && newPits[clickedIndex] !== 0) {
             let stones = newPits[clickedIndex];
             newPits[clickedIndex] = 0;
 
