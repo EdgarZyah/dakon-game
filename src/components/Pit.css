@@ -1,0 +1,17 @@
+.pit {
+    position: relative;
+    width: 200px;  /* Sesuaikan dengan ukuran yang diinginkan */
+    height: 200px; /* Sesuaikan dengan ukuran yang diinginkan */
+    border: 1px solid black; /* Untuk melihat batas pit */
+    margin: 10px;
+    display: inline-block; /* Agar pit bisa berjajar */
+}
+
+.marble {
+    position: absolute;
+    width: 30px;  /* Sesuaikan dengan ukuran marmer */
+    height: 30px; /* Sesuaikan dengan ukuran marmer */
+    background-size: cover;
+    background-position: center;
+    cursor: pointer; /* Menambahkan kursor pointer untuk interaksi */
+}
