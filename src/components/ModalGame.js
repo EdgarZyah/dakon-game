@@ -1,22 +1,21 @@
 import React from 'react';
-import gamecompletimage from './image/gamecomplete.png';
+
 
 const ModalGame = ({ show, winner, score, onReset, onClose }) => {
-    if (!show) return null; // jika mau ngedit modal tanda seru di hapus dulu, maka otomatis modal akan muncul, jangan lupa dikembalikan 
+    if (!show) return null;
 
     return (
-        <div className="modal-overlay">
-            <div className="modal-content">
+        <div className="modal-overlay-game">
+            <div className="modal-content-game">
                 <button className="close-modal-game" onClick={onClose}>X</button>
-                <img src={gamecompletimage} alt="Game Complete" className="game-complete-image" />
-                <div className="modal-body">
-                    <h3 className="winner-title">Winner</h3>
-                    <p className="winner-name">{winner}</p>
-                    <h3 className="score-title">Score</h3>
-                    <p className="score">{score}</p>
+                <div className="modal-body-game">
+                    <h3 className="winner-title-game">Winner</h3>
+                    <p className="winner-name-game">{winner}</p>
+                    <h3 className="score-title-game">Question's Score</h3>
+                    <p className="score-game">{score}</p>
                 </div>
-                <div className="modal-footer">
-                    <button className="new-game-button" onClick={onReset}>New Game</button>
+                <div className="modal-footer-game">
+                    <button className="new-game-button" onClick={onReset}>Play Again</button>
                 </div>
             </div>
         </div>
