@@ -30,6 +30,31 @@ html, body {
     box-sizing: border-box;
 }
 
+.fullscreen-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    background-color: #00bfff;
+    border: 3px solid white;
+    border-radius: 40px;
+    box-shadow: 0 4px #032f81;
+    transition: all 0.3s ease;
+    margin-top: 1em;
+}
+
+.fullscreen-btn:hover {
+    background-color: #007399;
+    box-shadow: -8px -8px 18px rgba(15, 105, 207, 0.1), 8px 8px 18px rgba(15, 105, 207, 0.1), inset -8px -8px 18px rgba(15, 105, 207, 0.1), inset 8px 8px 18px rgba(15, 105, 207, 0.1);
+}
+
+.fullscreen-btn:active{
+    background-color: #007399;
+    transform: translateY(2px);
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -54,7 +79,7 @@ html, body {
 .start-button {
     display: inline-block;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 22px;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -127,12 +152,15 @@ html, body {
 }
 
 .modal-content {
-    background-color: rgba(254, 254, 254, 0.6);
+    background-color: rgba(254, 254, 254, 1);
     margin: 15% auto;
     border-radius: 30px;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
